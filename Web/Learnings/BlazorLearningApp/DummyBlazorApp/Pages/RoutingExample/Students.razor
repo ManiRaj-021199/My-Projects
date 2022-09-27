@@ -1,0 +1,15 @@
+﻿@page "/students"
+@inject NavigationManager NavigationManager
+
+<h3>Students</h3>
+
+<a href="/students/studentDetail">Student 1</a>
+
+<button @onclick="NavigateToStudentDetails">Student 22</button>
+
+@code {
+    private void NavigateToStudentDetails()
+    {
+        NavigationManager.NavigateTo("/students/22");
+    }
+}

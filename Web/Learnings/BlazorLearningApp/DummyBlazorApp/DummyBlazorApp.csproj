@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BlazorLearningRazorLibrary">
+      <HintPath>..\..\BlazorLearningRazorLibrary\BlazorLearningRazorLibrary\bin\Debug\net6.0\BlazorLearningRazorLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
