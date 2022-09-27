@@ -1,0 +1,98 @@
+﻿@page "/validations";
+@using Data.ValidationsExample;
+@using Microsoft.AspNetCore.Components
+@inject IJSRuntime JsRuntime;
+
+<h3>Validations</h3>
+
+<div class="FormSection">
+    <EditForm Model="@_simpleFormModal" OnValidSubmit="@SubmitForm">
+        <DataAnnotationsValidator />
+        @* ValidationSummary Shows all error message at top of the form *@
+        @* <ValidationSummary /> *@
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-4">
+                <input class="form-control" type="text" id="name" name="name" @ref="_userNameInput" @bind="_simpleFormModal.Name" />
+                <ValidationMessage class="invalid-feedback" For = "@(() => _simpleFormModal.Name)" />
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="age" class="col-sm-2 col-form-label">Age</label>
+            <div class="col-sm-4">
+                <InputNumber class="form-control" id="age" name="age" @bind-Value="_simpleFormModal.Age" />
+                <ValidationMessage class="invalid-feedback" For = "@(() => _simpleFormModal.Age)" />
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-4">
+                <InputText class="form-control" id="email" name="email" @bind-Value="_simpleFormModal.Email" />
+                <ValidationMessage class="invalid-feedback" For = "@(() => _simpleFormModal.Email)" />
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="city" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-4">
+                <InputText class="form-control" id="city" name="city" @bind-Value="_simpleFormModal.City" />
+                <ValidationMessage class="invalid-feedback" For = "@(() => _simpleFormModal.City)" />
+            </div>
+        </div>
+        <div>
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit" />
+        </div>
+    </EditForm>
+</div>
+<br />
+<div class="DataTableSection">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (LstPersonData!.Count != 0)
+            {
+                foreach (var person in LstPersonData)
+                {
+                    <tr>
+                        <td>@person.Name</td>
+                        <td>@person.Age</td>
+                        <td>@person.Email</td>
+                        <td>@person.City</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@code {
+    public List<SimpleFormModal>? LstPersonData { get; set; }
+    SimpleFormModal _simpleFormModal = null!;
+
+    ElementReference _userNameInput;
+
+    protected override void OnInitialized()
+    {
+        _simpleFormModal = new SimpleFormModal();
+        LstPersonData = new List<SimpleFormModal>();
+        base.OnInitialized();
+    }
+
+    private async Task SubmitForm()
+    {
+        LstPersonData?.Add(_simpleFormModal);
+
+        var name = _simpleFormModal.Name;
+        _simpleFormModal = new SimpleFormModal();
+
+        await JsRuntime.InvokeVoidAsync("dataSavedMessageBox", name);
+        await JsRuntime.InvokeVoidAsync("setFocusOnElement", _userNameInput);
+    }
+}

@@ -1,0 +1,33 @@
+﻿@page "/razorcomponent";
+
+<h3>MainComponent</h3>
+
+<button @onclick="FirstButtonClicked">First</button>
+<button @onclick="SecondButtonClicked">Second</button>
+
+<RazorComponent IsVisible="IsFirstButtonVisible">
+    <span>@First</span>
+</RazorComponent>
+<RazorComponent IsVisible="IsSecondButtonVisible">
+    <span>@Second</span>
+</RazorComponent>
+
+@code {
+    public bool IsFirstButtonVisible { get; set; }
+    public bool IsSecondButtonVisible { get; set; }
+
+    public string First = "First Component";
+    public string Second = "Second Component";
+
+    public void FirstButtonClicked()
+    {
+        IsSecondButtonVisible = false;
+        IsFirstButtonVisible = true;
+    }
+
+    public void SecondButtonClicked()
+    {
+        IsFirstButtonVisible = false;
+        IsSecondButtonVisible = true;
+    }
+}
