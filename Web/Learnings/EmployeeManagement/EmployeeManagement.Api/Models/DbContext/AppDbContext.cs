@@ -22,7 +22,7 @@ namespace EmployeeManagement.Api.Models
                 Email = "johndoe@gmail.com",
                 DateOfBirth = new DateTime(2000, 1, 1),
                 Gender = Gender.Male,
-                Department = 1,
+                DepartmentId = 1,
                 PhotoPath = "images/john.png"
             });
 
@@ -34,7 +34,7 @@ namespace EmployeeManagement.Api.Models
                 Email = "johnsnow@gmail.com",
                 DateOfBirth = new DateTime(2000, 2, 1),
                 Gender = Gender.Male,
-                Department = 2,
+                DepartmentId = 2,
                 PhotoPath = "images/sam.jpg"
             });
 
@@ -46,7 +46,7 @@ namespace EmployeeManagement.Api.Models
                 Email = "mary@gmail.com",
                 DateOfBirth = new DateTime(2000, 3, 1),
                 Gender = Gender.Female,
-                Department = 3,
+                DepartmentId = 3,
                 PhotoPath = "images/mary.png"
             });
 
@@ -58,7 +58,7 @@ namespace EmployeeManagement.Api.Models
                 Email = "sara@gmail.com",
                 DateOfBirth = new DateTime(2000, 5, 1),
                 Gender = Gender.Female,
-                Department = 4,
+                DepartmentId = 4,
                 PhotoPath = "images/sara.png"
             });
         }
