@@ -7,7 +7,7 @@ namespace EmployeeManagement.Api.Models
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base (options) { }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
