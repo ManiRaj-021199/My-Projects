@@ -1,7 +1,4 @@
-﻿using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text.Json;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Shop.DataModels.CustomModels;
 
 namespace Shop.Admin.Services.AdminPanel
@@ -22,10 +19,10 @@ namespace Shop.Admin.Services.AdminPanel
         #region Publics
         public async Task<LoginResponseModel?> AdminLogin(LoginModel? loginModel)
         {
-            var result = await httpClient.PostAsJsonAsync("api/admin/AdminLogin", loginModel);
-            dynamic response = await result.Content.ReadAsStringAsync();
+            HttpResponseMessage? result = await httpClient.PostAsJsonAsync("api/admin/AdminLogin", loginModel);
+            string strResultContent = await result.Content.ReadAsStringAsync();
 
-            return JsonConvert.DeserializeObject<LoginResponseModel>(response);
+            return JsonConvert.DeserializeObject<LoginResponseModel>(strResultContent);
         }
         #endregion
     }
