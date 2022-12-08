@@ -33,7 +33,7 @@ namespace EmployeeManagement.Api.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Department")
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -60,7 +60,7 @@ namespace EmployeeManagement.Api.Migrations
                         {
                             EmployeeId = 1,
                             DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = 1,
+                            DepartmentId = 1,
                             Email = "johndoe@gmail.com",
                             FirstName = "John",
                             Gender = 0,
@@ -71,7 +71,7 @@ namespace EmployeeManagement.Api.Migrations
                         {
                             EmployeeId = 2,
                             DateOfBirth = new DateTime(2000, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = 2,
+                            DepartmentId = 2,
                             Email = "johnsnow@gmail.com",
                             FirstName = "John",
                             Gender = 0,
@@ -82,7 +82,7 @@ namespace EmployeeManagement.Api.Migrations
                         {
                             EmployeeId = 3,
                             DateOfBirth = new DateTime(2000, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = 3,
+                            DepartmentId = 3,
                             Email = "mary@gmail.com",
                             FirstName = "Mary",
                             Gender = 1,
@@ -93,7 +93,7 @@ namespace EmployeeManagement.Api.Migrations
                         {
                             EmployeeId = 4,
                             DateOfBirth = new DateTime(2000, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Department = 4,
+                            DepartmentId = 4,
                             Email = "sara@gmail.com",
                             FirstName = "Sara",
                             Gender = 1,

@@ -8,6 +8,7 @@ namespace EmployeeManagement.Api.Repository
         Task<Employee?> GetEmployeeById(int nEmployeeId);
         Task<Employee> AddEmployee(Employee employee);
         Task<Employee?> UpdateEmployee(Employee employee);
-        void DeleteEmployee(int nEmployeeId);
+        Task<Employee?> DeleteEmployee(int nEmployeeId);
+        Task<IEnumerable<Employee>> SearchEmployees(string name, Gender? gender);
     }
 }
