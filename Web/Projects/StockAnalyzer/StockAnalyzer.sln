@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAnalyzer.Common", "StockBackTest.Common\StockAnalyzer.Common.csproj", "{843FF405-BBCC-4C95-9650-BBBA12451A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAnalyzer.Logic", "StockBackTest.Logic\StockAnalyzer.Logic.csproj", "{5095B059-BFE4-4C4A-8761-73FBCDFC9B99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAnalyzer.Test", "StockBackTest.Test\StockAnalyzer.Test.csproj", "{3CDDBCC5-BC13-4264-BF28-2A4B7AEBEC54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAnalyzer.Data", "StockAnalyzer.Data\StockAnalyzer.Data.csproj", "{EE8B80F0-BC39-4856-AFA6-67873083FA4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAnalyzer.Api", "StockAnalyzer.Api\StockAnalyzer.Api.csproj", "{13F45717-D46E-4CE1-A7F8-D1FFB3E5319D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAnalyzer.Web", "StockAnalyzer.Web\StockAnalyzer.Web.csproj", "{6113071C-DD17-4182-BA9B-2911FF43EF10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{843FF405-BBCC-4C95-9650-BBBA12451A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843FF405-BBCC-4C95-9650-BBBA12451A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843FF405-BBCC-4C95-9650-BBBA12451A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843FF405-BBCC-4C95-9650-BBBA12451A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5095B059-BFE4-4C4A-8761-73FBCDFC9B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5095B059-BFE4-4C4A-8761-73FBCDFC9B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5095B059-BFE4-4C4A-8761-73FBCDFC9B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5095B059-BFE4-4C4A-8761-73FBCDFC9B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDDBCC5-BC13-4264-BF28-2A4B7AEBEC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDDBCC5-BC13-4264-BF28-2A4B7AEBEC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDDBCC5-BC13-4264-BF28-2A4B7AEBEC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDDBCC5-BC13-4264-BF28-2A4B7AEBEC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8B80F0-BC39-4856-AFA6-67873083FA4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8B80F0-BC39-4856-AFA6-67873083FA4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8B80F0-BC39-4856-AFA6-67873083FA4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8B80F0-BC39-4856-AFA6-67873083FA4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F45717-D46E-4CE1-A7F8-D1FFB3E5319D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F45717-D46E-4CE1-A7F8-D1FFB3E5319D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F45717-D46E-4CE1-A7F8-D1FFB3E5319D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F45717-D46E-4CE1-A7F8-D1FFB3E5319D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6113071C-DD17-4182-BA9B-2911FF43EF10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6113071C-DD17-4182-BA9B-2911FF43EF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6113071C-DD17-4182-BA9B-2911FF43EF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6113071C-DD17-4182-BA9B-2911FF43EF10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6A9C6A0-3CB7-4B65-B714-10BACA60315D}
+	EndGlobalSection
+EndGlobal
