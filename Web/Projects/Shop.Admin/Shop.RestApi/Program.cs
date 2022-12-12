@@ -1,8 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Shop.DataModels.Models;
 using Shop.Logic.Services.Admin;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ShopContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
 builder.Services.AddScoped<IAdminService, AdminService>();
 
 builder.Services.AddControllers();
