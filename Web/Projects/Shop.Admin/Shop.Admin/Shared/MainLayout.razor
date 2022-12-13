@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+
+@inject ProtectedSessionStorage SessionStorage;
 @inject NavigationManager NavigationManager;
 
 <PageTitle>Shop.Admin</PageTitle>
@@ -7,7 +9,7 @@
     @if(IsAdminLoggedIn)
     {
         <div class="sidebar">
-            <NavMenu />
+            <NavMenu/>
         </div>
     }
 
@@ -20,7 +22,9 @@
         }
 
         <article class="content px-4">
-            @Body
+            <CascadingValue Value="EventNotify">
+                @Body
+            </CascadingValue>
         </article>
     </main>
 </div>
@@ -28,10 +32,30 @@
 
 @code
 {
-    public bool IsAdminLoggedIn = false;
+    public bool IsAdminLoggedIn;
 
-    public void Logout()
+    EventCallback EventNotify => EventCallback.Factory.Create(this, NotifyLayout);
+
+    public async void Logout()
     {
+        await SessionStorage.DeleteAsync("AdminKey");
+        await NotifyLayout();
+
         NavigationManager.NavigateTo("/login");
+    }
+
+    private async Task NotifyLayout()
+    {
+        ProtectedBrowserStorageResult<string> adminSession = await SessionStorage.GetAsync<string>("AdminKey");
+
+        if(adminSession.Success)
+        {
+            IsAdminLoggedIn = true;
+        }
+        else
+        {
+            IsAdminLoggedIn = false;
+            NavigationManager.NavigateTo("/login");
+        }
     }
 }

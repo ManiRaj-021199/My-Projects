@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Shop.Admin.Services.AdminPanel;
 using Shop.DataModels.CustomModels;
 
-namespace Shop.Admin.Pages.Login
+namespace Shop.Admin.Pages
 {
     public class LoginBase : ComponentBase
     {
@@ -15,6 +16,12 @@ namespace Shop.Admin.Pages.Login
 
         [Inject]
         public NavigationManager? NavigationManager { get; set; }
+
+        [Inject]
+        public ProtectedSessionStorage? ProtectedSessionStorage { get; set; }
+
+        [CascadingParameter]
+        public EventCallback EventNotify { get; set; }
         #endregion
 
         #region Protecteds
@@ -31,6 +38,17 @@ namespace Shop.Admin.Pages.Login
 
             if(response!.Status)
             {
+                string[] userResponse = response.Message.Split("|");
+
+                if(this.ProtectedSessionStorage != null)
+                {
+                    await this.ProtectedSessionStorage.SetAsync("AdminKey", userResponse[0]);
+                    await this.ProtectedSessionStorage.SetAsync("AdminName", userResponse[1]);
+                    await this.ProtectedSessionStorage.SetAsync("AdminEmail", userResponse[2]);
+                }
+
+                await this.EventNotify.InvokeAsync();
+
                 this.NavigationManager?.NavigateTo("/");
             }
             else
