@@ -24,6 +24,19 @@ namespace Shop.Admin.Services.AdminPanel
 
             return JsonConvert.DeserializeObject<LoginResponseModel>(strResultContent);
         }
+
+        public async Task<CategoryModel?> SaveCategory(CategoryModel? categoryModel)
+        {
+            HttpResponseMessage? result = await httpClient.PostAsJsonAsync("api/admin/SaveCategory", categoryModel);
+            string strResultContent = await result.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<CategoryModel?>(strResultContent);
+        }
+
+        public async Task<List<CategoryModel?>> GetCategories()
+        {
+            return (await httpClient.GetFromJsonAsync<List<CategoryModel?>>("api/admin/GetCategories"))!;
+        }
         #endregion
     }
 }

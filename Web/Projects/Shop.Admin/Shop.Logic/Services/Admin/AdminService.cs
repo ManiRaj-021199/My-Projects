@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Shop.DataModels.CustomModels;
 using Shop.DataModels.Models;
@@ -53,6 +54,41 @@ namespace Shop.Logic.Services.Admin
             }
 
             return loginResponseModel;
+        }
+
+        public CategoryModel SaveCategory(CategoryModel categoryModel)
+        {
+            try
+            {
+                CategoryModel category = new CategoryModel { Name = categoryModel.Name };
+
+                appDbContext.Add(category);
+                appDbContext.SaveChanges();
+
+                return categoryModel;
+            }
+            catch(Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
+        public List<CategoryModel> GetCategories()
+        {
+            List<Category> data = appDbContext.Categories.ToList();
+            List<CategoryModel> categoryList = new List<CategoryModel>();
+
+            foreach(Category category in data)
+            {
+                CategoryModel categoryModel = new CategoryModel();
+
+                categoryModel.Id = category.Id;
+                categoryModel.Name = category.Name;
+
+                categoryList.Add(categoryModel);
+            }
+
+            return categoryList;
         }
         #endregion
     }

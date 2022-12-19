@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CustomModels\Category\" />
+  </ItemGroup>
+
 </Project>

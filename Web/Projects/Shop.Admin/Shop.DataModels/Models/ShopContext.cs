@@ -18,6 +18,7 @@ namespace Shop.DataModels.Models
         }
 
         public virtual DbSet<AdminInfo> AdminInfos { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -57,6 +58,19 @@ namespace Shop.DataModels.Models
                     .HasMaxLength(30);
 
                 entity.Property(e => e.UpdatedOn).HasMaxLength(30);
+            });
+
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Category");
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -30,6 +30,22 @@ namespace Shop.Api.Controllers
 
             return Ok(data);
         }
+
+        [HttpPost]
+        [Route("SaveCategory")]
+        public IActionResult SaveCategory(CategoryModel categoryModel)
+        {
+            var data = adminService.SaveCategory(categoryModel);
+            return Ok(data);
+        }
+
+        [HttpGet]
+        [Route("GetCategories")]
+        public IActionResult GetCategories()
+        {
+            var data = adminService.GetCategories();
+            return Ok(data);
+        }
         #endregion
     }
 }
